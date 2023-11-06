@@ -36,7 +36,7 @@ const shareButtonStyles: ICommandBarStyles & IButtonStyles = {
 const Layout = () => {
     const [isSharePanelOpen, setIsSharePanelOpen] = useState<boolean>(false);
     const [copyClicked, setCopyClicked] = useState<boolean>(false);
-    const [copyText, setCopyText] = useState<string>("Copy URL");
+    const [copyText, setCopyText] = useState<string>("URL kopieren");
     const appStateContext = useContext(AppStateContext)
 
     const handleShareClick = () => {
