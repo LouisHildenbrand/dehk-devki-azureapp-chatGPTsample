@@ -77,11 +77,11 @@ export const Answer = ({
                                 <Text
                                     className={styles.accordionTitle}
                                     onClick={toggleIsRefAccordionOpen}
-                                    aria-label="Open references"
+                                    aria-label="Quellen anzeigen"
                                     tabIndex={0}
                                     role="button"
                                 >
-                                <span>{parsedAnswer.citations.length > 1 ? parsedAnswer.citations.length + " references" : "1 reference"}</span>
+                                <span>{parsedAnswer.citations.length > 1 ? parsedAnswer.citations.length + " Quellen" : "1 Quelle"}</span>
                                 </Text>
                                 <FontIcon className={styles.accordionIcon}
                                 onClick={handleChevronClick} iconName={chevronIsExpanded ? 'ChevronDown' : 'ChevronRight'}
