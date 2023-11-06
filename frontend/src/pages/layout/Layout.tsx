@@ -46,7 +46,7 @@ const Layout = () => {
     const handleSharePanelDismiss = () => {
         setIsSharePanelOpen(false);
         setCopyClicked(false);
-        setCopyText("Copy URL");
+        setCopyText("URL kopieren");
     };
 
     const handleCopyClick = () => {
@@ -60,7 +60,7 @@ const Layout = () => {
 
     useEffect(() => {
         if (copyClicked) {
-            setCopyText("Copied URL");
+            setCopyText("URL kopiert");
         }
     }, [copyClicked]);
 
@@ -79,12 +79,12 @@ const Layout = () => {
                             aria-hidden="true"
                         />
                         <Link to="/" className={styles.headerTitleContainer}>
-                            <h1 className={styles.headerTitle}>Azure AI</h1>
+                            <h1 className={styles.headerTitle}>Hochland History Chat</h1>
                         </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
-                                <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Hide chat history" : "Show chat history"}/>    
+                                <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Historische Chats ausblenden" : "Historische Chats anzeigen"}/>    
                             }
                             <ShareButton onClick={handleShareClick} />
                     </Stack>
@@ -111,7 +111,7 @@ const Layout = () => {
                       }]
                 }}
                 dialogContentProps={{
-                    title: "Share the web app",
+                    title: "History-Chat-App teilen",
                     showCloseButton: true
                 }}
             >
