@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/fbab0874-a91f-4490-9cd6-d78830f855c9/resourceGroups/HL-test-rg-OpenAI/providers/Microsoft.Web/sites/HL-test-cog-WebChat-01",
+    "appService.deploySubpath": "."
+}
