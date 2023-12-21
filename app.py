@@ -388,7 +388,7 @@ def stream_without_data(response, history_metadata={}):
 def conversation_without_data(request_body):
     openai.api_type = "azure"
     openai.api_base = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
-    openai.api_version = "2023-08-01-preview"
+    openai.api_version = "2023-07-01-preview"
     openai.api_key = AZURE_OPENAI_KEY
 
     request_messages = request_body["messages"]
@@ -691,7 +691,7 @@ def ensure_cosmos():
 
 def generate_title(conversation_messages):
     ## make sure the messages are sorted by _ts descending
-    title_prompt = 'Summarize the conversation so far into a 4-word or less title. Do not use any quotation marks or punctuation. Respond with a json object in the format {{"title": string}}. Do not include any other commentary or description.'
+    title_prompt = 'Fasse das bisherige Gespräch in einem Titel mit höchstens 4 Wörtern zusammen. Verwende keine Anführungszeichen oder Interpunktion. Antworte mit einem json-Objekt im Format {{"title": string}}. Füge keine weiteren Kommentare oder Beschreibungen hinzu.'
 
     messages = [{'role': msg['role'], 'content': msg['content']} for msg in conversation_messages]
     messages.append({'role': 'user', 'content': title_prompt})
@@ -701,7 +701,7 @@ def generate_title(conversation_messages):
         base_url = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
         openai.api_type = "azure"
         openai.api_base = base_url
-        openai.api_version = "2023-03-15-preview"
+        openai.api_version = "2023-07-01-preview"
         openai.api_key = AZURE_OPENAI_KEY
         completion = openai.ChatCompletion.create(    
             engine=AZURE_OPENAI_MODEL,
