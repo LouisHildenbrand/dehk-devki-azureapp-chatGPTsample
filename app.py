@@ -388,7 +388,7 @@ def stream_without_data(response, history_metadata={}):
 def conversation_without_data(request_body):
     openai.api_type = "azure"
     openai.api_base = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
-    openai.api_version = "2023-07-01-preview"
+    openai.api_version = "2023-09-01-preview"
     openai.api_key = AZURE_OPENAI_KEY
 
     request_messages = request_body["messages"]
@@ -400,6 +400,9 @@ def conversation_without_data(request_body):
     ]
 
     for message in request_messages:
+        role = message.get('role')
+        if role is None:
+            continue
         messages.append({
             "role": message["role"] ,
             "content": message["content"]
@@ -450,7 +453,7 @@ def conversation_internal(request_body):
         else:
             return conversation_without_data(request_body)
     except Exception as e:
-        logging.exception(f"Exception in /conversation. {request_body}")
+        logging.exception(f"Exception in /conversation. Request body: {request_body}")
         return jsonify({"error": str(e)}), 500
 
 ## Conversation History API ## 
@@ -519,15 +522,16 @@ def update_conversation():
         ## Format the incoming message object in the "chat/completions" messages format
         ## then write it to the conversation history in cosmos
         messages = request.json["messages"]
-        logging.info(msg=f"messages={messages}")
         if len(messages) > 0 and messages[-1]['role'] == "assistant":
-            if len(messages) > 1 and messages[-2]['role'] == "tool":
-                # write the tool message first
-                cosmos_conversation_client.create_message(
-                    conversation_id=conversation_id,
-                    user_id=user_id,
-                    input_message=messages[-2]
-                )
+            if len(messages) > 1:
+                role = messages[-1].get('role')
+                if role is not None:
+                    # write the tool message first
+                    cosmos_conversation_client.create_message(
+                        conversation_id=conversation_id,
+                        user_id=user_id,
+                        input_message=messages[-2]
+                    )
             # write the assistant message
             cosmos_conversation_client.create_message(
                 conversation_id=conversation_id,
@@ -702,7 +706,7 @@ def generate_title(conversation_messages):
         base_url = AZURE_OPENAI_ENDPOINT if AZURE_OPENAI_ENDPOINT else f"https://{AZURE_OPENAI_RESOURCE}.openai.azure.com/"
         openai.api_type = "azure"
         openai.api_base = base_url
-        openai.api_version = "2023-07-01-preview"
+        openai.api_version = "2023-09-01-preview"
         openai.api_key = AZURE_OPENAI_KEY
         completion = openai.ChatCompletion.create(    
             engine=AZURE_OPENAI_MODEL,
