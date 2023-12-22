@@ -524,8 +524,9 @@ def update_conversation():
         messages = request.json["messages"]
         if len(messages) > 0 and messages[-1]['role'] == "assistant":
             if len(messages) > 1:
-                role = messages[-1].get('role')
+                role = messages[-2].get('role')
                 if role is not None:
+                    logging.exception(f"role = {role}")
                     # write the tool message first
                     cosmos_conversation_client.create_message(
                         conversation_id=conversation_id,
