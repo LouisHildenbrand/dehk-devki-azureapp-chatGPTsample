@@ -450,7 +450,7 @@ def conversation_internal(request_body):
         else:
             return conversation_without_data(request_body)
     except Exception as e:
-        logging.exception("Exception in /conversation")
+        logging.exception(f"Exception in /conversation. {request_body}")
         return jsonify({"error": str(e)}), 500
 
 ## Conversation History API ## 
