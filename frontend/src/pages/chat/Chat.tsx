@@ -575,8 +575,7 @@ const Chat = () => {
                                     className={styles.chatIcon}
                                     aria-hidden="true"
                                 />
-                                <h1 className={styles.chatEmptyStateTitle}>Stell eine Frage!</h1>
-                                <h2 className={styles.chatEmptyStateSubtitle}>Dieser Chatbot ist dafür konfiguriert worden, Fragen zur Hochland-Chronik zu beantworten.</h2>
+                                <h1 className={styles.chatEmptyStateTitle}>Wie kann ich dir heute helfen?</h1>
                             </Stack>
                         ) : (
                             <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? "40px" : "0px"}} role="log">
@@ -686,7 +685,7 @@ const Chat = () => {
                             </Stack>
                             <QuestionInput
                                 clearOnSend
-                                placeholder="Type a new question..."
+                                placeholder="Deine Frage an HochlandGPT..."
                                 disabled={isLoading}
                                 onSend={(question, id) => {
                                     appStateContext?.state.isCosmosDBAvailable?.cosmosDB ? makeApiRequestWithCosmosDB(question, id) : makeApiRequestWithoutCosmosDB(question, id)
