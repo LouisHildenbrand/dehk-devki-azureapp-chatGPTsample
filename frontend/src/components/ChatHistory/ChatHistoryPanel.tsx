@@ -36,9 +36,9 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
 
     const clearAllDialogContentProps = {
         type: DialogType.close,
-        title: !clearingError? 'Sollen wirklich alle Chat-Historien gelöscht werden?' : 'Error deleting all of chat history',
+        title: !clearingError? 'Sollen wirklich alle Chat-Verläufe gelöscht werden?' : 'Fehler beim löschen der Chat-Verläufe.',
         closeButtonAriaLabel: 'Schließen',
-        subText: !clearingError ? 'Alle Chat-Historien werden unwiderruflich gelöscht.' : 'Please try again. If the problem persists, please contact the site administrator.',
+        subText: !clearingError ? 'Alle Chat-Verläufe werden unwiderruflich gelöscht.' : 'Please try again. If the problem persists, please contact the site administrator.',
     };
     
     const modalProps = {
@@ -49,7 +49,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
     }
 
     const menuItems: IContextualMenuItem[] = [
-        { key: 'clearAll', text: 'Alle Chats löschen', iconProps: { iconName: 'Delete' }},
+        { key: 'clearAll', text: 'Alle Chat-Verläufe löschen', iconProps: { iconName: 'Delete' }},
     ];
 
     const handleHistoryClick = () => {
@@ -88,7 +88,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-between' verticalAlign='center' wrap aria-label="chat history header">
                 <StackItem>
-                    <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat history</Text>
+                    <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat-Verlauf</Text>
                 </StackItem>
                 <Stack verticalAlign="start">
                     <Stack horizontal styles={commandBarButtonStyle}>
@@ -164,7 +164,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                                 </StackItem>
                                 <StackItem>
                                     <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14 }}>
-                                        <span style={{ whiteSpace: 'pre-wrap' }}>Loading chat history</span>
+                                        <span style={{ whiteSpace: 'pre-wrap' }}>Chat-Verlauf wird geladen.</span>
                                     </Text>
                                 </StackItem>
                             </Stack>
