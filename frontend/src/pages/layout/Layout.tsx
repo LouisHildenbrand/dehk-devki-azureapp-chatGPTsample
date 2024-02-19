@@ -88,16 +88,16 @@ const Layout = () => {
                             {
                                 <HistoryButton onClick={handleHistoryClick} text={"Hilfe erhalten"}/>
                             }
-                            <Link to="https://hochland.sharepoint.com/sites/KI" className={styles.headerTitleContainer}>
-                                <h1 className={styles.headerTitle}>Test1</h1>
+                            <Link to="https://hochland.sharepoint.com/sites/KI" target="_blank" className={styles.helpContainer}>
+                                <h1 className={styles.helpTitle}>Test1</h1>
                             </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
                             {
                                 <HistoryButton onClick={handleHistoryClick} text={"Feedback geben"}/>    
                             }
-                            <Link to="https://www.google.com" className={styles.headerTitleContainer}>
-                                <h1 className={styles.headerTitle}>Test2</h1>
+                            <Link to="https://www.google.com" target="_blank" className={styles.feedbackContainer}>
+                                <h1 className={styles.feedbackTitle}>Test2</h1>
                             </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
@@ -110,6 +110,7 @@ const Layout = () => {
                 </Stack>
             </header>
             <Outlet />
+            {/*
             <Dialog 
                 onDismiss={handleSharePanelDismiss}
                 hidden={!isSharePanelOpen}
@@ -148,6 +149,7 @@ const Layout = () => {
                     </div>
                 </Stack>
             </Dialog>
+            */}
         </div>
     );
 };
