@@ -84,6 +84,14 @@ const Layout = () => {
                             <h1 className={styles.headerTitle}>HochlandGPT</h1>
                         </Link>
                     </Stack>
+                    <Stack>
+                        <Link to="https://hochland.sharepoint.com/sites/KI" className={styles.helpContainer}>
+                            <h1 className={styles.helpTitle}>Test1</h1>
+                        </Link>
+                        <Link to="https://www.google.com" className={styles.feedbackContainer}>
+                            <h1 className={styles.feedbackTitle}>Test2</h1>
+                        </Link>
+                    </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
                             {
                                 <HistoryButton onClick={handleHistoryClick} text={"Hilfe erhalten"}/>
@@ -100,6 +108,7 @@ const Layout = () => {
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
                                 <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Chat-Verlauf ausblenden" : "Chat-Verlauf anzeigen"}/>    
                             }
+                            {/*<ShareButton onClick={handleShareClick} />*/}
                     </Stack>
 
                 </Stack>
