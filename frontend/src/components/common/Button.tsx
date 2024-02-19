@@ -48,7 +48,7 @@ interface HistoryButtonProps extends IButtonProps {
 export const HistoryButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
     const historyButtonStyles: ICommandBarStyles & IButtonStyles = {
         root: {
-          width: '200px',
+          width: '220px',
           height: 32,
           borderRadius: 4,
           background: '#352F91',
