@@ -11,6 +11,7 @@ import { isEmpty } from "lodash-es";
 import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
 import HL from "../../assets/HL.svg";
+import HL_png from "../../assets/HL.png";
 
 import {
     ChatMessage,
@@ -572,9 +573,9 @@ const Chat = () => {
                         {!messages || messages.length < 1 ? (
                             <Stack className={styles.chatEmptyState}>
                                 <img
-                                    src={HL}
-                                    className={styles.chatIcon}
-                                    aria-hidden="true"
+                                    src={HL_png}
+                                    //className={styles.chatIcon}
+                                    //aria-hidden="true"
                                 />
                                 <h1 className={styles.chatEmptyStateTitle}>Wie kann ich dir heute helfen?</h1>
                             </Stack>
