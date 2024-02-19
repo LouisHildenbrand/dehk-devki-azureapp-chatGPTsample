@@ -85,6 +85,22 @@ const Layout = () => {
                         </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
+                            {
+                                <HistoryButton onClick={handleHistoryClick} text={"Hilfe erhalten"}/>
+                            }
+                            <Link to="https://hochland.sharepoint.com/sites/KI" className={styles.headerTitleContainer}>
+                                <h1 className={styles.headerTitle}>Test1</h1>
+                            </Link>
+                    </Stack>
+                    <Stack horizontal tokens={{ childrenGap: 4 }}>
+                            {
+                                <HistoryButton onClick={handleHistoryClick} text={"Feedback geben"}/>    
+                            }
+                            <Link to="https://www.google.com" className={styles.headerTitleContainer}>
+                                <h1 className={styles.headerTitle}>Test2</h1>
+                            </Link>
+                    </Stack>
+                    <Stack horizontal tokens={{ childrenGap: 4 }}>
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
                                 <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Chat-Verlauf ausblenden" : "Chat-Verlauf anzeigen"}/>    
                             }
