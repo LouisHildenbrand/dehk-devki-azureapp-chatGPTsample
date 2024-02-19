@@ -54,7 +54,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 110px;
     display: flex;
     align-items: center;
     color: #FFFFFF;
@@ -75,7 +75,7 @@
     order: 1;
     flex-grow: 0;
     position: absolute;
-    right: 20px;
+    right: 200px;
     cursor: pointer;
 }
 
