@@ -574,7 +574,7 @@ const Chat = () => {
                             <Stack className={styles.chatEmptyState}>
                                 <img
                                     src={HL_png}
-                                    //className={styles.chatIcon}
+                                    className={styles.chatIcon}
                                     //aria-hidden="true"
                                 />
                                 <h1 className={styles.chatEmptyStateTitle}>Wie kann ich dir heute helfen?</h1>
