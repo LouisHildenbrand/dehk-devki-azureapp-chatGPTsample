@@ -364,14 +364,13 @@ def stream_without_data(response, history_metadata={}):
     logging.info(f"response: {response}")
     for line in response:
         if line["choices"]:
-            deltaText = line["choices"][0]["delta"].get('content')     
-            logging.info(f"choices: {deltaText}")     
+            deltaText = line["choices"][0]["delta"].get('content')
             print(f"choices: {deltaText}")
         else:
             deltaText = ""
         if deltaText and deltaText != "[DONE]":
             responseText = deltaText
-
+        print(f"responseText: {responseText}")
         response_obj = {
             "id": line["id"],
             "model": line["model"],
@@ -446,6 +445,7 @@ def conversation_without_data(request_body):
 @app.route("/conversation", methods=["GET", "POST"])
 def conversation():
     request_body = request.json
+    print(f"request_body: {request_body}")
     return conversation_internal(request_body)
 
 def conversation_internal(request_body):
