@@ -46,7 +46,7 @@
     order: 1;
     flex-grow: 0;
     position: absolute;
-    right: 240px;
+    right: 250px;
     cursor: pointer;
 }
 
@@ -75,7 +75,7 @@
     order: 1;
     flex-grow: 0;
     position: absolute;
-    right: 390px;
+    right: 360px;
     cursor: pointer;
 }
 

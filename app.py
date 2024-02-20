@@ -443,6 +443,7 @@ def conversation_without_data(request_body):
 @app.route("/conversation", methods=["GET", "POST"])
 def conversation():
     request_body = request.json
+    logging.info(f"request_body: {request_body}")
     return conversation_internal(request_body)
 
 def conversation_internal(request_body):
