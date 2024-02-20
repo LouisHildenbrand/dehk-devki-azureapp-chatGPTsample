@@ -365,7 +365,7 @@ def stream_without_data(response, history_metadata={}):
     for line in response:
         if line["choices"]:
             deltaText = line["choices"][0]["delta"].get('content')     
-            logging.info(f"choices: {line["choices"][0]["delta"].get('content')}")
+            logging.info(f"choices: {deltaText}")
         else:
             deltaText = ""
         if deltaText and deltaText != "[DONE]":
