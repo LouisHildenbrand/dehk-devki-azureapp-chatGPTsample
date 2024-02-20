@@ -46,7 +46,7 @@
     order: 1;
     flex-grow: 0;
     position: absolute;
-    right: 230px;
+    right: 240px;
     cursor: pointer;
 }
 
@@ -67,7 +67,7 @@
     align-items: center;
     padding: 5px 12px;
     gap: 4px;
-    width: 120px;
+    width: 140px;
     height: 32px;
     background: #352F91;
     border-radius: 4px;
@@ -75,7 +75,7 @@
     order: 1;
     flex-grow: 0;
     position: absolute;
-    right: 354px;
+    right: 390px;
     cursor: pointer;
 }
 

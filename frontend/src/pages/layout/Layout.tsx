@@ -97,7 +97,7 @@ const Layout = () => {
                             <Link to="https://hochland.sharepoint.com/sites/KI" target="_blank" className={styles.helpContainer}>
                                 <h1 className={styles.helpTitle}>Hilfe erhalten</h1>
                             </Link>
-                            <Link to="https://www.google.com" target="_blank" className={styles.feedbackContainer}>
+                            <Link to="https://forms.office.com/e/T4VcN5AS06" target="_blank" className={styles.feedbackContainer}>
                                 <h1 className={styles.feedbackTitle}>Feedback geben</h1>
                             </Link>
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
