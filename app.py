@@ -361,9 +361,11 @@ def conversation_with_data(request_body):
 
 def stream_without_data(response, history_metadata={}):
     responseText = ""
+    logging.info(f"response: {response}")
     for line in response:
         if line["choices"]:
-            deltaText = line["choices"][0]["delta"].get('content')
+            deltaText = line["choices"][0]["delta"].get('content')     
+            logging.info(f"choices: {line["choices"][0]["delta"].get('content')}")
         else:
             deltaText = ""
         if deltaText and deltaText != "[DONE]":
@@ -437,7 +439,6 @@ def conversation_without_data(request_body):
 
         return jsonify(response_obj), 200
     else:
-        logging.info(f"Message before streaming: {response.choices[0].message.content}")
         return Response(stream_without_data(response, history_metadata), mimetype='text/event-stream')
 
 
