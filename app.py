@@ -363,6 +363,7 @@ def stream_without_data(response, history_metadata={}):
     responseText = ""
     logging.info(f"response: {response}")
     for line in response:
+        responseText = ""
         if line["choices"]:
             deltaText = line["choices"][0]["delta"].get('content')
             print(f"choices: {deltaText}")
