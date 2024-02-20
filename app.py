@@ -437,6 +437,7 @@ def conversation_without_data(request_body):
 
         return jsonify(response_obj), 200
     else:
+        logging.info(f"Message before streaming: {response.choices[0].message.content}")
         return Response(stream_without_data(response, history_metadata), mimetype='text/event-stream')
 
 
