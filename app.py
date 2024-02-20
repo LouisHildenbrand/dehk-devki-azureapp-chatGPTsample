@@ -361,7 +361,6 @@ def conversation_with_data(request_body):
 
 def stream_without_data(response, history_metadata={}):
     responseText = ""
-    logging.info(f"response: {response}")
     for line in response:
         responseText = ""
         if line["choices"]:
