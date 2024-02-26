@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import styles from "./Layout.module.css";
 import Azure from "../../assets/Azure.svg";
 import HL from "../../assets/HL.svg";
-import HL_png from "../../assets/HL.png";
+import HL_png from "../../assets/HL_old.png";
 import HL_jpg from "../../assets/HL.jpg";
 import { CopyRegular, ShareRegular } from "@fluentui/react-icons";
 import { CommandBarButton, Dialog, Stack, TextField, ICommandBarStyles, IButtonStyles, DefaultButton  } from "@fluentui/react";
