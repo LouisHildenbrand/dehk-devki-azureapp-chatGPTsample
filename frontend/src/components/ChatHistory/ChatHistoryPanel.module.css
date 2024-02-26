@@ -26,6 +26,14 @@
     background: #E6E6E6;
 }
 
+.historyButtons {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    color: #352F91;
+}
+
 .itemButton {
     display: flex;
     justify-content: center;

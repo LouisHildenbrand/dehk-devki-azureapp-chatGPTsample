@@ -12,6 +12,7 @@ import styles from "./Chat.module.css";
 import Azure from "../../assets/Azure.svg";
 import HL from "../../assets/HL.svg";
 import HL_png from "../../assets/HL.png";
+import HL_jpg from "../../assets/HL.jpg";
 
 import {
     ChatMessage,
@@ -574,7 +575,7 @@ const Chat = () => {
                         {!messages || messages.length < 1 ? (
                             <Stack className={styles.chatEmptyState}>
                                 <img
-                                    src={HL_png}
+                                    src={HL_jpg}
                                     className={styles.chatIcon}
                                     //aria-hidden="true"
                                 />
@@ -648,7 +649,7 @@ const Chat = () => {
                                         },
                                         root: {
                                             color: '#FFFFFF',
-                                            background: "radial-gradient(109.81% 107.82% at 100.1% 90.19%, #0F6CBD 33.63%, #2D87C3 70.31%, #8DDDD8 100%)"
+                                            background: "#352F91"
                                         },
                                         rootDisabled: {
                                             background: "#BDBDBD"
@@ -660,24 +661,6 @@ const Chat = () => {
                                     disabled={disabledButton()}
                                     aria-label="start a new chat button"
                                 />}
-                                <CommandBarButton
-                                    role="button"
-                                    styles={{ 
-                                        icon: { 
-                                            color: '#FFFFFF',
-                                        },
-                                        root: {
-                                            color: '#FFFFFF',
-                                            background: disabledButton() ? "#BDBDBD" : "radial-gradient(109.81% 107.82% at 100.1% 90.19%, #0F6CBD 33.63%, #2D87C3 70.31%, #8DDDD8 100%)",
-                                            cursor: disabledButton() ? "" : "pointer"
-                                        },
-                                    }}
-                                    className={appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured ? styles.clearChatBroom : styles.clearChatBroomNoCosmos}
-                                    iconProps={{ iconName: 'Broom' }}
-                                    onClick={appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured ? clearChat : newChat}
-                                    disabled={disabledButton()}
-                                    aria-label="clear chat button"
-                                />
                                 <Dialog
                                     hidden={hideErrorDialog}
                                     onDismiss={handleErrorDialogClose}

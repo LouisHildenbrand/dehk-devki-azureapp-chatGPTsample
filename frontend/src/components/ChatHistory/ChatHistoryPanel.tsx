@@ -21,7 +21,8 @@ const commandBarStyle: ICommandBarStyles = {
         padding: '0',
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        color: '#352F91'
     },
 };
 
@@ -88,13 +89,13 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
         <section className={styles.container} data-is-scrollable aria-label={"chat history panel"}>
             <Stack horizontal horizontalAlign='space-between' verticalAlign='center' wrap aria-label="chat history header">
                 <StackItem>
-                    <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Chat-Verlauf</Text>
+                    <Text role="heading" aria-level={2} style={{ alignSelf: "center", fontWeight: "600", fontSize: "18px", marginRight: "auto", paddingLeft: "20px" }}>Mein Chat-Verlauf</Text>
                 </StackItem>
                 <Stack verticalAlign="start">
                     <Stack horizontal styles={commandBarButtonStyle}>
                         <CommandBarButton
                             iconProps={{ iconName: 'More' }}
-                            title={"Clear all chat history"}
+                            title={"Alle Chat-Verläufe löschen"}
                             onClick={onShowContextualMenu}
                             aria-label={"clear all chat history"}
                             styles={commandBarStyle}
@@ -110,7 +111,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                         />
                         <CommandBarButton
                             iconProps={{ iconName: 'Cancel' }}
-                            title={"Hide"}
+                            title={""}
                             onClick={handleHistoryClick}
                             aria-label={"hide button"}
                             styles={commandBarStyle}
