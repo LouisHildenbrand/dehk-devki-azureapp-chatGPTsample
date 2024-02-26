@@ -7,7 +7,7 @@ import HL_jpg from "../../assets/HL.jpg";
 import { CopyRegular, ShareRegular } from "@fluentui/react-icons";
 import { CommandBarButton, Dialog, Stack, TextField, ICommandBarStyles, IButtonStyles, DefaultButton  } from "@fluentui/react";
 import { useContext, useEffect, useState } from "react";
-import { HistoryButton, ShareButton } from "../../components/common/Button";
+import { HistoryButton, InfoButton, ShareButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
 import { CosmosDBStatus } from "../../api";
 
@@ -60,6 +60,10 @@ const Layout = () => {
     const handleHistoryClick = () => {
         appStateContext?.dispatch({ type: 'TOGGLE_CHAT_HISTORY' })
     };
+    
+    const handleInfoClick = () => {
+        window.open("https://hochland.sharepoint.com/sites/KI", "_blank");
+    };
 
     useEffect(() => {
         if (copyClicked) {
@@ -77,7 +81,7 @@ const Layout = () => {
                 >
                     <Stack horizontal verticalAlign="center">
                         <img
-                            src={HL_jpg}
+                            src={HL_png}
                             className={styles.headerIcon}
                             aria-hidden="true"
                         />
@@ -85,15 +89,6 @@ const Layout = () => {
                             <h1 className={styles.headerTitle}>HochlandGPT</h1>
                         </Link>
                     </Stack>
-                    {/*
-                    <Stack>
-                        <Link to="https://hochland.sharepoint.com/sites/KI" className={styles.helpContainer}>
-                            <h1 className={styles.helpTitle}>Test1</h1>
-                        </Link>
-                        <Link to="https://www.google.com" className={styles.feedbackContainer}>
-                            <h1 className={styles.feedbackTitle}>Test2</h1>
-                        </Link>
-    </Stack>*/}
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
                             <Link to="https://hochland.sharepoint.com/sites/KI" target="_blank" className={styles.helpContainer}>
                                 <h1 className={styles.helpTitle}>Hilfe erhalten</h1>
@@ -104,6 +99,7 @@ const Layout = () => {
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
                                 <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Chat-Verlauf ausblenden" : "Chat-Verlauf anzeigen"}/>    
                             }
+                            <InfoButton onClick={handleInfoClick} text="Mehr erfahren"/>
                             {/*<ShareButton onClick={handleShareClick} />*/}
                     </Stack>
 

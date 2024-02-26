@@ -631,7 +631,7 @@ const Chat = () => {
                                     horizontal
                                     className={styles.stopGeneratingContainer}
                                     role="button"
-                                    aria-label="Stop generating"
+                                    aria-label="Antwortgenerierung beenden"
                                     tabIndex={0}
                                     onClick={stopGenerating}
                                     onKeyDown={e => e.key === "Enter" || e.key === " " ? stopGenerating() : null}
@@ -656,7 +656,7 @@ const Chat = () => {
                                         }
                                     }}
                                     className={styles.newChatIcon}
-                                    iconProps={{ iconName: 'Add' }}
+                                    iconProps={{ iconName: 'Comment Add' }}
                                     onClick={newChat}
                                     disabled={disabledButton()}
                                     aria-label="start a new chat button"
