@@ -59,9 +59,9 @@ export const Answer = ({
     return (
         <>
             <Stack className={styles.answerContainer} tabIndex={0}>
-                <Stack.Item className={styles.answerDisclaimerContainer}>
+                {/**<Stack.Item className={styles.answerDisclaimerContainer}>
                     <span className={styles.answerDisclaimer}>{new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', timeZone: 'Europe/Berlin', hour12: false })}</span>
-                </Stack.Item>
+                </Stack.Item>**/}
                 <Stack.Item grow>
                     <ReactMarkdown
                         linkTarget="_blank"

@@ -86,7 +86,7 @@
 
 .chatMessageUserMessage {
     padding: 20px;
-    background: #352F91;
+    background: rgba(53, 47, 145, 0.5);
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 0px 2px rgba(0, 0, 0, 0.12);
     font-style: normal;
@@ -207,7 +207,7 @@
     position: absolute;
     width: 250px;
     height: 32px;
-    left: calc(50% - 161px/2 + 25.8px);
+    left: calc(75% - 161px/2 + 25.8px);
     bottom: 116px;
     border: 1px solid #D1D1D1;
     border-radius: 16px;
@@ -245,26 +245,26 @@
     position: absolute;
     width: 200px;
     height: 32px;
-    left: calc(50% - 161px/2 + 25.8px);
+    left: calc(25% - 161px/2 + 25.8px);
     bottom: 116px;
 }
 
 .securityIcon {
     width: 14px;
     height: 14px;
-    color: #424242;
+    color: #357441;
 }
 
 .securityText {
     width: 200px;
-    height: 20px;
+    height: 11px;
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 11px;
     line-height: 20px;
     display: flex;
     align-items: center;
-    color: #242424;
+    color: #357441;
     flex: none;
     order: 0;
     flex-grow: 0;
