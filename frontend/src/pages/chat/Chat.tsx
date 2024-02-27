@@ -13,6 +13,8 @@ import Azure from "../../assets/Azure.svg";
 import HL from "../../assets/HL.svg";
 import HL_png from "../../assets/HL.png";
 import HL_jpg from "../../assets/HL.jpg";
+import Comment_Add from "../../assets/comment_add.png";
+import Shield_Checkmark from "../../assets/shield_checkmark.png";
 
 import {
     ChatMessage,
@@ -646,7 +648,7 @@ const Chat = () => {
                                 role="button"
                                 tabIndex={0}
                                 >
-                                    <SquareRegular className={styles.securityIcon} aria-hidden="true"/>
+                                    <img src={Shield_Checkmark} className={styles.securityIcon} alt="Icon Description" />    
                                     <span className={styles.securityText} aria-hidden="true">Deine persönlichen und Unternehmensdaten sind in diesem Chat geschützt.</span>
                             </Stack>
                             <Stack>
@@ -665,10 +667,12 @@ const Chat = () => {
                                         }
                                     }}
                                     className={styles.newChatIcon}
-                                    iconProps={{ iconName: 'Comment Add' }}
                                     onClick={newChat}
                                     disabled={disabledButton()}
                                     aria-label="start a new chat button"
+                                    onRenderIcon={(props, defaultRender) => (
+                                        <img src={Comment_Add} />
+                                    )}
                                 />}
                                 <Dialog
                                     hidden={hideErrorDialog}
