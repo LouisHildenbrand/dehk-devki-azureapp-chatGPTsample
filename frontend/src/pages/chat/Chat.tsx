@@ -640,6 +640,15 @@ const Chat = () => {
                                         <span className={styles.stopGeneratingText} aria-hidden="true">Antwortgenerierung beenden</span>
                                 </Stack>
                             )}
+                            <Stack
+                                horizontal
+                                className={styles.securityContainer}
+                                role="button"
+                                tabIndex={0}
+                                >
+                                    <SquareRegular className={styles.securityIcon} aria-hidden="true"/>
+                                    <span className={styles.securityText} aria-hidden="true">Deine persönlichen und Unternehmensdaten sind in diesem Chat geschützt.</span>
+                            </Stack>
                             <Stack>
                                 {appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured && <CommandBarButton
                                     role="button"
