@@ -84,7 +84,7 @@ export const HistoryButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
 export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
   const infoButtonStyles: ICommandBarStyles & IButtonStyles = {
       root: {
-        width: '200px',
+        width: '160px',
         height: 32,
         borderRadius: 4,
         background: '#352F91',
@@ -95,6 +95,42 @@ export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
       },
       icon: {
         color: '#FFFFFF',
+      },
+      rootHovered: {
+        background: '#352F91',
+      },
+      label: {
+        fontWeight: 600,
+        fontSize: 14,
+        lineHeight: '20px',
+        color: '#FFFFFF',
+      }
+    };
+
+    return (
+      <CommandBarButton
+          text={text}
+          iconProps={{ iconName: 'Info' }}
+          onClick={onClick}
+          styles={infoButtonStyles}
+      />
+    )
+}
+
+export const SecurityButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
+  const infoButtonStyles: ICommandBarStyles & IButtonStyles = {
+      root: {
+        width: '320px',
+        height: 32,
+        borderRadius: 4,
+        background: '#FFFFFF',
+      //   position: 'absolute',
+      //   right: 20,
+        padding: '5px 12px',
+        marginRight: '20px'
+      },
+      icon: {
+        color: '#352F91',
       },
       rootHovered: {
         background: '#352F91',
