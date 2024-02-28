@@ -197,8 +197,8 @@
 }
 
 .newChatIcon {
-    width: 14px;
-    height: 14px;
+    width: 40px;
+    height: 40px;
     color: #FFFFFF;
 }
 
@@ -252,13 +252,13 @@
     width: 500px;
     height: 32px;
     left: calc(15% - 161px/2 + 25.8px);
-    bottom: 110px;
+    bottom: 100px;
 }
 
 .securityIcon {
-    width: 14px;
-    height: 14px;
-    color: #357441;
+    width: 22px;
+    height: 22px;
+    color: rgb(53, 116, 65);
 }
 
 .securityText {
