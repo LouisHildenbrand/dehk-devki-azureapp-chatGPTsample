@@ -179,7 +179,7 @@
     z-index: 1;
 }
 
-.newChatIcon {
+.newChatIconOld {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -194,6 +194,12 @@
     border: 1px solid #D1D1D1;
     border-radius: 4px;
     z-index: 1;
+}
+
+.newChatIcon {
+    width: 14px;
+    height: 14px;
+    color: #FFFFFF;
 }
 
 .stopGeneratingContainer {
@@ -245,8 +251,8 @@
     position: absolute;
     width: 500px;
     height: 32px;
-    left: calc(20% - 161px/2 + 25.8px);
-    bottom: 116px;
+    left: calc(15% - 161px/2 + 25.8px);
+    bottom: 110px;
 }
 
 .securityIcon {
