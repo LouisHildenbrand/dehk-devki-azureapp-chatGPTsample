@@ -648,7 +648,7 @@ const Chat = () => {
                                 role="button"
                                 tabIndex={0}
                                 >
-                                    <img src={Shield_Checkmark} className={styles.securityIcon} alt="Icon Description" />    
+                                    <img src={Shield_Checkmark} className={styles.securityIcon}/>    
                                     <span className={styles.securityText} aria-hidden="true">Deine persönlichen und Unternehmensdaten sind in diesem Chat geschützt.</span>
                             </Stack>
                             <Stack>
@@ -671,7 +671,7 @@ const Chat = () => {
                                     disabled={disabledButton()}
                                     aria-label="start a new chat button"
                                     onRenderIcon={(props, defaultRender) => (
-                                        <img src={Comment_Add} />
+                                        <img src={Comment_Add} className={styles.newChatIcon}/>
                                     )}
                                 />}
                                 <Dialog
