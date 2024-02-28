@@ -101,6 +101,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                             styles={commandBarStyle}
                             role="button"
                             id="moreButton"
+                            color="#352F91"
                         />
                         <ContextualMenu
                             items={menuItems}
@@ -116,6 +117,7 @@ export function ChatHistoryPanel(props: ChatHistoryPanelProps) {
                             aria-label={"hide button"}
                             styles={commandBarStyle}
                             role="button"
+                            color="#352F91"
                         />
                     </Stack>
                 </Stack>

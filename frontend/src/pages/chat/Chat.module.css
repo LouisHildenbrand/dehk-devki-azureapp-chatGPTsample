@@ -197,9 +197,18 @@
 }
 
 .newChatIcon {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     width: 40px;
     height: 40px;
     color: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    z-index: 1;
 }
 
 .stopGeneratingContainer {
@@ -251,7 +260,7 @@
     position: absolute;
     width: 500px;
     height: 32px;
-    left: calc(15% - 161px/2 + 25.8px);
+    left: calc(12% - 161px/2 + 25.8px);
     bottom: 100px;
 }
 
