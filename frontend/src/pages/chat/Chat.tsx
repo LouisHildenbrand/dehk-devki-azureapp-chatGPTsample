@@ -651,15 +651,6 @@ const Chat = () => {
                                     <img src={Shield_Checkmark} className={styles.securityIcon}/>    
                                     <span className={styles.securityText} aria-hidden="true">Deine persönlichen und Unternehmensdaten sind in diesem Chat geschützt.</span>
                             </Stack>
-                            <Stack>
-                                <Dialog
-                                    hidden={hideErrorDialog}
-                                    onDismiss={handleErrorDialogClose}
-                                    dialogContentProps={errorDialogContentProps}
-                                    modalProps={modalProps}
-                                >
-                                </Dialog>
-                            </Stack>
                             <QuestionInput
                                 clearOnSend
                                 placeholder="Deine Frage an HochlandGPT..."

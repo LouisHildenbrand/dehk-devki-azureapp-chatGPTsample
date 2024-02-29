@@ -28,6 +28,7 @@
 .questionInputSendButton {
     width: 24px;
     height: 23px;
+    color: #08198A;
 }
 
 .questionInputSendButtonDisabled {
@@ -44,7 +45,7 @@
     height: 4px;
     left: 0%;
     bottom: 0%;
-    background: #352F91;
+    background: #08198A;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
