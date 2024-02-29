@@ -110,7 +110,7 @@ export const AddChatButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
     return (
       <CommandBarButton
           text={text}
-          iconProps={{ iconName: 'Add Circle' }}
+          iconProps={{ iconName: 'AddTo' }}
           onClick={onClick}
           styles={addChatButtonStyles}
       />
@@ -123,6 +123,7 @@ export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
         width: '160px',
         height: 32,
         borderRadius: 4,
+        borderColor: '#08198A', 
         background: '#F2F2F2',
       //   position: 'absolute',
       //   right: 20,
@@ -133,7 +134,7 @@ export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
         color: '#08198A',
       },
       rootHovered: {
-        background: '#F2F2F2',
+        background: '#FFFFFF',
       },
       label: {
         fontWeight: 600,

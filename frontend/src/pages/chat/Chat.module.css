@@ -260,14 +260,14 @@
     position: absolute;
     width: 500px;
     height: 32px;
-    left: calc(13% - 161px/2 + 25.8px);
+    left: calc(10% - 161px/2 + 25.8px);
     bottom: 100px;
 }
 
 .securityIcon {
     width: 22px;
     height: 22px;
-    color: rgb(53, 116, 65);
+    color: rgb(0, 106, 58);
 }
 
 .securityText {
@@ -279,7 +279,7 @@
     line-height: 20px;
     display: flex;
     align-items: center;
-    color: #357441;
+    color: #006A3A;
     flex: none;
     order: 0;
     flex-grow: 0;
