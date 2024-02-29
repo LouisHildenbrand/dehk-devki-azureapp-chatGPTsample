@@ -10,8 +10,21 @@ import { useContext, useEffect, useState } from "react";
 import { HistoryButton, InfoButton, ShareButton, AddChatButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
 import { CosmosDBStatus } from "../../api";
-import newChat from "../chat/Chat";
+//import newChat from "../chat/Chat";
+import {
+    ChatMessage,
+    Citation
+} from "../../api";
 
+const enum messageStatus {
+    NotRunning = "Not Running",
+    Processing = "Processing",
+    Done = "Done"
+}
+const [processMessages, setProcessMessages] = useState<messageStatus>(messageStatus.NotRunning);
+const [messages, setMessages] = useState<ChatMessage[]>([]);
+const [isCitationPanelOpen, setIsCitationPanelOpen] = useState<boolean>(false);
+const [activeCitation, setActiveCitation] = useState<Citation>();
 const shareButtonStyles: ICommandBarStyles & IButtonStyles = {
     root: {
       width: 86,
@@ -64,6 +77,15 @@ const Layout = () => {
     
     const handleInfoClick = () => {
         window.open("https://hochland.sharepoint.com/sites/KI", "_blank");
+    };
+
+    const newChat = () => {
+        setProcessMessages(messageStatus.Processing)
+        setMessages([])
+        setIsCitationPanelOpen(false);
+        setActiveCitation(undefined);
+        appStateContext?.dispatch({ type: 'UPDATE_CURRENT_CHAT', payload: null });
+        setProcessMessages(messageStatus.Done)
     };
 
     useEffect(() => {
