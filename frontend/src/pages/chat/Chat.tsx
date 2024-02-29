@@ -652,28 +652,6 @@ const Chat = () => {
                                     <span className={styles.securityText} aria-hidden="true">Deine persönlichen und Unternehmensdaten sind in diesem Chat geschützt.</span>
                             </Stack>
                             <Stack>
-                                {appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured && <CommandBarButton
-                                    role="button"
-                                    styles={{ 
-                                        icon: { 
-                                            color: '#FFFFFF',
-                                        },
-                                        root: {
-                                            color: '#FFFFFF',
-                                            background: "#352F91"
-                                        },
-                                        rootDisabled: {
-                                            background: "#BDBDBD"
-                                        }
-                                    }}
-                                    className={styles.newChatIcon}
-                                    onClick={newChat}
-                                    disabled={disabledButton()}
-                                    aria-label="start a new chat button"
-                                    onRenderIcon={(props, defaultRender) => (
-                                        <img src={Comment_Add} className={styles.newChatIcon}/>
-                                    )}
-                                />}
                                 <Dialog
                                     hidden={hideErrorDialog}
                                     onDismiss={handleErrorDialogClose}

@@ -81,8 +81,8 @@ export const HistoryButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
       )
 }
 
-export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
-  const infoButtonStyles: ICommandBarStyles & IButtonStyles = {
+export const AddChatButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
+  const addChatButtonStyles: ICommandBarStyles & IButtonStyles = {
       root: {
         width: '160px',
         height: 32,
@@ -104,6 +104,42 @@ export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
         fontSize: 14,
         lineHeight: '20px',
         color: '#FFFFFF',
+      }
+    };
+
+    return (
+      <CommandBarButton
+          text={text}
+          iconProps={{ iconName: 'Add Circle' }}
+          onClick={onClick}
+          styles={addChatButtonStyles}
+      />
+    )
+}
+
+export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
+  const infoButtonStyles: ICommandBarStyles & IButtonStyles = {
+      root: {
+        width: '160px',
+        height: 32,
+        borderRadius: 4,
+        background: '#F2F2F2',
+      //   position: 'absolute',
+      //   right: 20,
+        padding: '5px 12px',
+        marginRight: '20px'
+      },
+      icon: {
+        color: '#08198A',
+      },
+      rootHovered: {
+        background: '#08198A',
+      },
+      label: {
+        fontWeight: 600,
+        fontSize: 14,
+        lineHeight: '20px',
+        color: '#08198A',
       }
     };
 

@@ -7,9 +7,10 @@ import HL_jpg from "../../assets/HL.jpg";
 import { CopyRegular, ShareRegular } from "@fluentui/react-icons";
 import { CommandBarButton, Dialog, Stack, TextField, ICommandBarStyles, IButtonStyles, DefaultButton  } from "@fluentui/react";
 import { useContext, useEffect, useState } from "react";
-import { HistoryButton, InfoButton, ShareButton } from "../../components/common/Button";
+import { HistoryButton, InfoButton, ShareButton, AddChatButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
 import { CosmosDBStatus } from "../../api";
+import newChat from "../chat/Chat";
 
 const shareButtonStyles: ICommandBarStyles & IButtonStyles = {
     root: {
@@ -90,10 +91,11 @@ const Layout = () => {
                         </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
+                            <InfoButton onClick={handleInfoClick} text="Mehr erfahren"/>
+                            <AddChatButton onClick={newChat} text="Neuer Chat"/>
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
                                 <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Chat-Verlauf ausblenden" : "Chat-Verlauf anzeigen"}/>    
                             }
-                            <InfoButton onClick={handleInfoClick} text="Mehr erfahren"/>
                             {/*<ShareButton onClick={handleShareClick} />*/}
                     </Stack>
 
