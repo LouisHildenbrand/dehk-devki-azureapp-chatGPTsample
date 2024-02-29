@@ -9,7 +9,7 @@
     flex: 1;
     display: flex;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 200px;
     margin-left: 20px;
     margin-right: 20px;
     gap: 5px;
@@ -93,7 +93,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: #FFFFFF;
+    color: #000000;
     flex: none;
     order: 0;
     flex-grow: 0;
