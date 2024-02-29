@@ -51,7 +51,7 @@ export const HistoryButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
           width: '220px',
           height: 32,
           borderRadius: 4,
-          background: '#352F91',
+          background: '#08198A',
         //   position: 'absolute',
         //   right: 20,
           padding: '5px 12px',
@@ -61,7 +61,7 @@ export const HistoryButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
           color: '#FFFFFF',
         },
         rootHovered: {
-          background: '#352F91',
+          background: '#08198A',
         },
         label: {
           fontWeight: 600,
@@ -87,7 +87,7 @@ export const AddChatButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
         width: '160px',
         height: 32,
         borderRadius: 4,
-        background: '#352F91',
+        background: '#08198A',
       //   position: 'absolute',
       //   right: 20,
         padding: '5px 12px',
@@ -97,7 +97,7 @@ export const AddChatButton: React.FC<HistoryButtonProps> = ({onClick, text}) => 
         color: '#FFFFFF',
       },
       rootHovered: {
-        background: '#352F91',
+        background: '#08198A',
       },
       label: {
         fontWeight: 600,
@@ -133,7 +133,7 @@ export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
         color: '#08198A',
       },
       rootHovered: {
-        background: '#08198A',
+        background: '#F2F2F2',
       },
       label: {
         fontWeight: 600,
