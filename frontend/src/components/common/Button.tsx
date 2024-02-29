@@ -124,6 +124,7 @@ export const InfoButton: React.FC<HistoryButtonProps> = ({onClick, text}) => {
         height: 32,
         borderRadius: 4,
         borderColor: '#08198A', 
+        borderStyle: 'solid',
         background: '#F2F2F2',
       //   position: 'absolute',
       //   right: 20,
