@@ -9,22 +9,14 @@ import { CommandBarButton, Dialog, Stack, TextField, ICommandBarStyles, IButtonS
 import { useContext, useEffect, useState } from "react";
 import { HistoryButton, InfoButton, ShareButton, AddChatButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
-import { CosmosDBStatus } from "../../api";
-//import newChat from "../chat/Chat";
-import {
-    ChatMessage,
-    Citation
-} from "../../api";
+import { CosmosDBStatus, ChatMessage, Citation } from "../../api";
 
 const enum messageStatus {
     NotRunning = "Not Running",
     Processing = "Processing",
     Done = "Done"
 }
-const [processMessages, setProcessMessages] = useState<messageStatus>(messageStatus.NotRunning);
-const [messages, setMessages] = useState<ChatMessage[]>([]);
-const [isCitationPanelOpen, setIsCitationPanelOpen] = useState<boolean>(false);
-const [activeCitation, setActiveCitation] = useState<Citation>();
+
 const shareButtonStyles: ICommandBarStyles & IButtonStyles = {
     root: {
       width: 86,
@@ -50,7 +42,12 @@ const shareButtonStyles: ICommandBarStyles & IButtonStyles = {
     },
   };
 
-const Layout = () => {
+const Layout = () => {    
+    const [processMessages, setProcessMessages] = useState<messageStatus>(messageStatus.NotRunning);
+    const [messages, setMessages] = useState<ChatMessage[]>([]);
+    const [isCitationPanelOpen, setIsCitationPanelOpen] = useState<boolean>(false);
+    const [activeCitation, setActiveCitation] = useState<Citation>();
+
     const [isSharePanelOpen, setIsSharePanelOpen] = useState<boolean>(false);
     const [copyClicked, setCopyClicked] = useState<boolean>(false);
     const [copyText, setCopyText] = useState<string>("URL kopieren");
