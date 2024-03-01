@@ -28,8 +28,7 @@
 .questionInputSendButton {
     width: 24px;
     height: 23px;
-    background: #08198A;
-    color: #F2F2F2;
+    filter: invert(15%) sepia(80%) saturate(2741%) hue-rotate(228deg) brightness(82%) contrast(121%);
 }
 
 .questionInputSendButtonDisabled {
