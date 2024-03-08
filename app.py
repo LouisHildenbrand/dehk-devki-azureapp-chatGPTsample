@@ -520,6 +520,8 @@ def update_conversation():
         ## Format the incoming message object in the "chat/completions" messages format
         ## then write it to the conversation history in cosmos
         messages = request_json["messages"]
+        print(messages)
+        logging.info(messages)
         if len(messages) > 0 and messages[-1]['role'] == "assistant":
             if len(messages) > 1 and messages[-2].get('role', None) == "tool":
                 # write the tool message first
