@@ -436,7 +436,7 @@ if __name__ == "__main__":
     with open(args.config) as f:
         config = json.load(f)
 
-    credential = AzureCliCredential()
+    credential = az("login")
     form_recognizer_client = None
 
     print("Data preparation script started")
