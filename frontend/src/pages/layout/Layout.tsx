@@ -106,11 +106,11 @@ const Layout = () => {
                             aria-hidden="true"
                         />
                         <Link to="/" className={styles.headerTitleContainer}>
-                            <h1 className={styles.headerTitle}>Hochland HistoryGPT</h1>
+                            <h1 className={styles.headerTitle}>Hochland HistoryBot</h1>
                         </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
-                            <InfoButton onClick={handleInfoClick} text="Mehr erfahren"/>
+                            {/*<InfoButton onClick={handleInfoClick} text="Mehr erfahren"/>*/}
                             <AddChatButton onClick={newChat} text="Neuer Chat"/>
                             {(appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured) && 
                                 <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Chat-Verlauf ausblenden" : "Chat-Verlauf anzeigen"}/>    
