@@ -3,6 +3,7 @@ import os
 import logging
 import requests
 import openai
+import uuid
 from azure.identity import DefaultAzureCredential
 from flask import Flask, Response, request, jsonify, send_from_directory
 from dotenv import load_dotenv
@@ -503,38 +504,34 @@ def add_conversation():
 
 
 @app.route("/history/update", methods=["POST"])
-def update_conversation():
+async def update_conversation():
     authenticated_user = get_authenticated_user_details(request_headers=request.headers)
     user_id = authenticated_user['user_principal_id']
 
     ## check request for conversation_id
-    conversation_id = request.json.get("conversation_id", None)
+    request_json = await request.get_json()
+    conversation_id = request_json.get('conversation_id', None)
 
     try:
-        # make sure cosmos is configured
-        if not cosmos_conversation_client:
-            raise Exception("CosmosDB is not configured")
-
         # check for the conversation_id, if the conversation is not set, we will create a new one
         if not conversation_id:
             raise Exception("No conversation_id found")
             
         ## Format the incoming message object in the "chat/completions" messages format
         ## then write it to the conversation history in cosmos
-        messages = request.json["messages"]
+        messages = request_json["messages"]
         if len(messages) > 0 and messages[-1]['role'] == "assistant":
-            if len(messages) > 1:
-                role = messages[-2].get('role')
-                if role is not None:
-                    logging.exception(f"role = {role}")
-                    # write the tool message first
-                    cosmos_conversation_client.create_message(
-                        conversation_id=conversation_id,
-                        user_id=user_id,
-                        input_message=messages[-2]
-                    )
+            if len(messages) > 1 and messages[-2].get('role', None) == "tool":
+                # write the tool message first
+                await cosmos_conversation_client.create_message(
+                    uuid=str(uuid.uuid4()),
+                    conversation_id=conversation_id,
+                    user_id=user_id,
+                    input_message=messages[-2]
+                )
             # write the assistant message
-            cosmos_conversation_client.create_message(
+            await cosmos_conversation_client.create_message(
+                uuid=messages[-1]['id'],
                 conversation_id=conversation_id,
                 user_id=user_id,
                 input_message=messages[-1]
@@ -543,6 +540,7 @@ def update_conversation():
             raise Exception("No bot messages found")
         
         # Submit request to Chat Completions for response
+        await cosmos_conversation_client.cosmosdb_client.close()
         response = {'success': True}
         return jsonify(response), 200
        
