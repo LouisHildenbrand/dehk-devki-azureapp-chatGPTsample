@@ -464,17 +464,14 @@ def add_conversation():
     user_id = authenticated_user['user_principal_id']
 
     ## check request for conversation_id
-    conversation_id = request.json.get("conversation_id", None)
+    request_json = request.get_json()
+    conversation_id = request_json.get('conversation_id', None)
 
     try:
-        # make sure cosmos is configured
-        if not cosmos_conversation_client:
-            raise Exception("CosmosDB is not configured")
-
         # check for the conversation_id, if the conversation is not set, we will create a new one
         history_metadata = {}
         if not conversation_id:
-            title = generate_title(request.json["messages"])
+            title = generate_title(request_json["messages"])
             conversation_dict = cosmos_conversation_client.create_conversation(user_id=user_id, title=title)
             conversation_id = conversation_dict['id']
             history_metadata['title'] = title
@@ -482,18 +479,23 @@ def add_conversation():
             
         ## Format the incoming message object in the "chat/completions" messages format
         ## then write it to the conversation history in cosmos
-        messages = request.json["messages"]
+        messages = request_json["messages"]
         if len(messages) > 0 and messages[-1]['role'] == "user":
-            cosmos_conversation_client.create_message(
+            createdMessageValue = cosmos_conversation_client.create_message(
+                uuid=str(uuid.uuid4()),
                 conversation_id=conversation_id,
                 user_id=user_id,
                 input_message=messages[-1]
             )
+            if createdMessageValue == "Conversation not found":
+                raise Exception("Conversation not found for the given conversation ID: " + conversation_id + ".")
         else:
             raise Exception("No user message found")
         
+        cosmos_conversation_client.cosmosdb_client.close()
+        
         # Submit request to Chat Completions for response
-        request_body = request.json
+        request_body = request.get_json()
         history_metadata['conversation_id'] = conversation_id
         request_body['history_metadata'] = history_metadata
         return conversation_internal(request_body)
